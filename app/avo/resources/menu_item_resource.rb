@@ -19,7 +19,7 @@ class MenuItemResource < Avo::BaseResource
 
   field :id, as: :id
   field :position, as: :number, sortable: true
-  field :name_fr, as: :text
+  field :name_fr, as: :text, hide_on: [:index]
   field :name_en, as: :text, required: true
   field :controller_name, as: :text, required: true
   field :controller_action, as: :text, required: true

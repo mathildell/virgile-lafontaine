@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_one_attached :image
+  has_one_attached :video
   has_one_attached :hq_preview
 
   belongs_to :collection

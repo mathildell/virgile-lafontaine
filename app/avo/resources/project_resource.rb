@@ -21,11 +21,13 @@ class ProjectResource < Avo::BaseResource
   field :name, as: :text, required: true
   field :description, as: :trix, placeholder: I18n.t('admin.add_description'), always_show: false
 
-  field :image, as: :file, is_image: true, link_to_resource: true, required: true
-  field :hq_preview, as: :file, is_image: true, link_to_resource: true
+  field :image, as: :file, is_image: true, link_to_resource: true
+  field :video, as: :file, is_image: true, link_to_resource: true
+  field :hq_preview, as: :file, is_image: true, link_to_resource: true, hide_on: [:index]
 
-  field :link_to_open_sea, as: :text
-  field :link_to_etsy, as: :text
+  field :link_to_open_sea, as: :text, hide_on: [:index]
+  field :link_to_etsy, as: :text, hide_on: [:index]
+
   field :is_public, as: :boolean
   field :collection, as: :belongs_to
 
