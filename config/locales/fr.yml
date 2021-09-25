@@ -53,3 +53,4 @@ fr:
     logout: "Déconnexion"
     has_projects: "Possède des projets"
     doesnt_have_projects: "N'a pas de projets"
+    users: "Utilisateurs"

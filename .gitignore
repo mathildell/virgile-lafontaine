@@ -39,3 +39,5 @@ tmp/
 .idea
 log/
 test/
+
+ImageMagick*

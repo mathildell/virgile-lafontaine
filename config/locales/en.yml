@@ -49,3 +49,4 @@ en:
     logout: "Logout"
     has_projects: "Has projects"
     doesnt_have_projects: "Doesn't have projects"
+    users: "Users"

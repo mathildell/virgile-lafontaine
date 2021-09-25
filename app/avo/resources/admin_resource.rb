@@ -4,6 +4,14 @@ class AdminResource < Avo::BaseResource
   # self.search_query = ->(params:) do
   #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
   # end
+  def custom_meta_data
+    {
+      position: 6,
+      hr_after: false,
+      title_before: I18n.t('admin.users')
+    }
+  end
+
   self.devise_password_optional = true
 
   field :id, as: :id

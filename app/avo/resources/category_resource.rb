@@ -5,6 +5,13 @@ class CategoryResource < Avo::BaseResource
   #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
   # end
 
+  def custom_meta_data
+    {
+      position: 0,
+      hr_after: false
+    }
+  end
+
   field :id, as: :id
   field :name, as: :text, required: true
 
