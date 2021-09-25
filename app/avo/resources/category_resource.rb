@@ -8,5 +8,6 @@ class CategoryResource < Avo::BaseResource
   field :id, as: :id
   field :name, as: :text, required: true
 
+  filter OwnsProjectsFilter
   # add fields here
 end

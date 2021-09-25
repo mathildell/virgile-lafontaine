@@ -47,6 +47,9 @@ fr:
         is_public: "Publié"
   admin:
     published: "Publié"
+    unpublished: "Hors ligne"
     add_description: "Ajouter une description ici"
     hello: "Bonjour %{name}! 👋 "
     logout: "Déconnexion"
+    has_projects: "Possède des projets"
+    doesnt_have_projects: "N'a pas de projets"

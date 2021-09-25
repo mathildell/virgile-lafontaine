@@ -22,4 +22,6 @@ class ProjectResource < Avo::BaseResource
   # field :stage, as: :badge, options: { info: [:discovery, :idea], success: :done, warning: 'on hold', danger: :cancelled } # The mapping of custom values to badge values.
   field :category_name, as: :badge, options: @@badges
 
+  filter PublishedFilter
+
 end

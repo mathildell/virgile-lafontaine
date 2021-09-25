@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   has_one_attached :image
   belongs_to :collection
   has_one :category, :through => :collection
+  scope :published, -> { where(is_public: true) }
 
   def category_name=
     category&.name
