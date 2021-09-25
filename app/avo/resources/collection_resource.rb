@@ -6,8 +6,7 @@ class CollectionResource < Avo::BaseResource
   # end
   def custom_meta_data
     {
-      position: 1,
-      hr_after: false
+      position: 1
     }
   end
 

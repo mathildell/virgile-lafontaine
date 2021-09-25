@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= "#{@page_title} | " if @page_title.present? %><%= t('site_title') %></title>
+    <title><%= "#{@page_title} | " if @page_title.present? %><%= $website_config&.website_name.presence || t('site_title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

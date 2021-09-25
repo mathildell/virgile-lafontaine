@@ -11,14 +11,18 @@
         <%= render Avo::NavigationHeadingComponent.new label: t('avo.resources') %>
 
         <div class="w-full">
+          <% routes_obj = Avo::Engine.routes %>
           <% resources = Avo::App.resources_navigation(_current_user) %>
           <% resources = resources.sort_by { |x| x.try(:custom_meta_data) ? x.custom_meta_data[:position] : 0 } %>
           <% resources.each do |resource| %>
             <% meta_data = resource.try(:custom_meta_data)  %>
 
+            <% path_for_params = { action: :index, controller: "avo/#{ resource.model_class.name.underscore.pluralize.downcase }"  } %>
+            <% path_for_params.merge!({action: :edit, id: meta_data[:direct_access_to] }) if meta_data && meta_data[:direct_access_to].present? %>
+
             <%= render Avo::NavigationHeadingComponent.new label: meta_data[:title_before] if meta_data && meta_data[:title_before].present? %>
 
-            <%= render Avo::NavigationLinkComponent.new label: resource.plural_name.humanize, path: resources_path(resource.model_class) %>
+            <%= render Avo::NavigationLinkComponent.new label: resource.plural_name.humanize, path: routes_obj.path_for(path_for_params) %>
             <%= "<hr>".html_safe if meta_data && meta_data[:hr_after] %>
           <% end %>
 

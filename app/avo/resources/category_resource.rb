@@ -6,10 +6,6 @@ class CategoryResource < Avo::BaseResource
   # end
 
   def custom_meta_data
-    {
-      position: 0,
-      hr_after: false
-    }
   end
 
   field :id, as: :id

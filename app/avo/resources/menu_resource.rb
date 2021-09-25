@@ -8,7 +8,6 @@ class MenuResource < Avo::BaseResource
   def custom_meta_data
     {
       position: 4,
-      hr_after: false,
       title_before: Menu.name.pluralize.humanize
     }
   end
