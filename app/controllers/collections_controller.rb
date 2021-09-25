@@ -1,0 +1,25 @@
+class CollectionsController < ApplicationController
+  before_action :set_collection, only: %i[ show edit update destroy ]
+
+  # GET /collections or /collections.json
+  def index
+    @collections = Collection.all
+    @page_title = Collection.model_name.human&.pluralize
+  end
+
+  # GET /collections/1 or /collections/1.json
+  def show
+    @page_title = @collection.name
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_collection
+      @collection = Collection.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def collection_params
+      params.require(:collection).permit(:name)
+    end
+end
