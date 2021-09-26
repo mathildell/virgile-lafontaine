@@ -1,3 +1,3 @@
 <h1>
-  <%= $website_config&.website_name.presence || t('site_title') %>
+  <%= link_to $website_config&.website_name.presence || t('site_title'), root_url %>
 </h1>

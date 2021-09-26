@@ -30,9 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 fr:
-  yes: "Oui"
-  no: "Non"
-  site_title: "Application de Virgile"
+  yes: Oui
+  no: Non
+  home: Accueil
+  index: Liste des resources
+  show: Détail d'une resource
+  site_title: Application de Virgile
   activerecord:
     models:
       project: Projet
@@ -40,17 +43,17 @@ fr:
       admin: Administrateurs
     attributes:
       project:
-        name: "Nom"
-        description: "Description"
-        link_to_open_sea: "Lien vers opensea"
-        link_to_etsy: "Lien vers etsy"
-        is_public: "Publié"
+        name: Nom
+        description: Description
+        link_to_open_sea: Lien vers opensea
+        link_to_etsy: Lien vers etsy
+        is_public: Publié
   admin:
-    published: "Publié"
-    unpublished: "Hors ligne"
-    add_description: "Ajouter une description ici"
-    hello: "Bonjour %{name}! 👋 "
-    logout: "Déconnexion"
-    has_projects: "Possède des projets"
-    doesnt_have_projects: "N'a pas de projets"
-    users: "Utilisateurs"
+    published: Publié
+    unpublished: Hors ligne
+    add_description: Ajouter une description ici
+    hello: Bonjour %{name}! 👋
+    logout: Déconnexion
+    has_projects: Possède des projets
+    doesnt_have_projects: N'a pas de projets
+    website: Site web

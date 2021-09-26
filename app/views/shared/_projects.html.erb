@@ -1,0 +1,4 @@
+<% model_collection.each do |project| %>
+  <% next unless project.image.present? %>
+  <%= render 'shared/project_item', project: project %>
+<% end %>

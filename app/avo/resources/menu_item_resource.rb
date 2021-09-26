@@ -1,3 +1,5 @@
+require "application_controller"
+
 class MenuItemResource < Avo::BaseResource
   self.title = :name_en
   self.includes = []
@@ -21,8 +23,13 @@ class MenuItemResource < Avo::BaseResource
   field :position, as: :number, sortable: true
   field :name_fr, as: :text, hide_on: [:index]
   field :name_en, as: :text, required: true
-  field :controller_name, as: :text, required: true
-  field :controller_action, as: :text, required: true
+
+  field :controller_name, as: :select, enum: ::MenuItem.controller_names
+  field :controller_action, as: :select, enum: ::MenuItem.controller_actions, hide_on: [:index]
+  field :resource_identifiant, as: :number, hide_on: [:index]
+  # field :resource_identifiant, as: :number, visible: -> (resource:) { resource.model.controller_action == "show" }
+
+
   field :is_public, as: :boolean
   field :menu_id, as: :select, options: @@menu, hide_on: [:index, :show]
   field :menu_name, as: :badge, options: @@badges

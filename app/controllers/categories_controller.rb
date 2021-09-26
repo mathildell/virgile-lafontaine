@@ -4,11 +4,13 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
+    @projects = @categories.map { |x| x.projects.published }.flatten.sort_by { |x| x.created_at }
     @page_title = Category.model_name.human&.pluralize
   end
 
   # GET /categories/1 or /categories/1.json
   def show
+    @projects = @category.projects.published.order(created_at: :desc)
     @page_title = @category.name
   end
 

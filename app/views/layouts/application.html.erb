@@ -6,11 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
     <%= javascript_pack_tag 'application' %>
-
-
-    <%= javascript_pack_tag "customs/#{params[:controller]}" rescue nil %>
 
 
 

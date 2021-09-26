@@ -1,4 +1,35 @@
-<%= render 'shared/menu_parts/website_name' %>
-<%= render 'shared/menu_parts/logo' %>
-<%= render 'shared/menu_parts/artist_name' %>
-<%= render 'shared/menu_parts/navigation' %>
+<div class="sidebar-navigation">
+    <%= Menu.name.humanize %>
+</div>
+
+<div class="sidebar-info">
+  <div class="sidebar-navigation-modal">
+    <%= render 'shared/menu_parts/navigation' %>
+  </div>
+
+  <div class="sidebar-main-title">
+    <%= render 'shared/menu_parts/website_name' %>
+  </div>
+
+  <div class="sidebar-logo">
+    <%= render 'shared/menu_parts/logo' %>
+  </div>
+
+  <% name = @name.presence || @page_title %>
+  <% if @crumbs || name %>
+    <div class="sidebar-project-collection">
+      <%= render 'shared/menu_parts/breadcrumbs', crumbs: @crumbs if @crumbs %>
+      <%= render 'shared/menu_parts/resource_name', name: name  %>
+    </div>
+  <% end %>
+
+  <% if @project %>
+    <%= render 'shared/menu_parts/project_details' %>
+  <% elsif params[:controller] != 'home' %>
+    <div class="sidebar-collections">
+      <%# render 'shared/menu_parts/category_navigation' %>
+      <%= render 'shared/menu_parts/collections_navigation', collection: ( @category.try(:collections) || Collection.all) unless @collection %>
+      <%= render 'shared/menu_parts/collections_navigation', collection: Category.all unless @category %>
+    </div>
+  <% end %>
+</div>

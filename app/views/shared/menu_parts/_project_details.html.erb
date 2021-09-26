@@ -1,0 +1,11 @@
+<% if @project.description.present? %>
+  <div class="sidebar-project-description">
+    <%== @project.description %>
+  </div>
+<% end %>
+
+<% if $website_config.show_projects_links %>
+  <div class="sidebar-project-urls">
+    <%= link_to 'Open sea', @project.link_to_open_sea %> | <%= link_to 'Etsy', @project.link_to_etsy %>
+  </div>
+<% end %>

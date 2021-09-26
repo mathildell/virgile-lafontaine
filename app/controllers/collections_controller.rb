@@ -4,12 +4,16 @@ class CollectionsController < ApplicationController
   # GET /collections or /collections.json
   def index
     @collections = Collection.all
+    @projects = @collections.map { |x| x.projects.published.order(created_at: :desc) }.flatten
     @page_title = Collection.model_name.human&.pluralize
   end
 
   # GET /collections/1 or /collections/1.json
   def show
+    @projects = @collection.projects.published.order(created_at: :desc)
     @page_title = @collection.name
+
+    @crumbs = [@collection.category]
   end
 
   private

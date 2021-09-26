@@ -1,10 +1,16 @@
 class MenuItem < ApplicationRecord
   belongs_to :menu
   scope :published, -> { where(is_public: true) }
+  enum controller_name: { Category.name.pluralize.humanize => 'categories',
+                           Collection.name.pluralize.humanize => "collections",
+                           I18n.t('home') => "home",
+                           Project.name.pluralize.humanize => "projects",
+                           Page.name.pluralize.humanize => 'pages' }
+  enum controller_action: { I18n.t('index') => 'index', I18n.t('show') => 'show' }
 
   # Generate the sequence no if not already provided.
   before_validation(on: :create) do
-    items = MenuItem.where(menu_id: self.id).order(:position)
+    items = MenuItem.where(menu_id: self.menu_id).order(:position)
     self.position = items.any? ? items.last.position + 1 : 0  unless self.position
   end
 
@@ -13,6 +19,7 @@ class MenuItem < ApplicationRecord
   end
 
   after_save :reorganize_position_index
+  after_destroy :reorganize_position_index
 
   private
 
@@ -24,7 +31,7 @@ class MenuItem < ApplicationRecord
       menu_items.reload
     end
 
-    rearrange_collection(menu_items.order(:position), index: 0) if menu_items.any? && menu_items.last.position > (menu_items.count + 1)
+    rearrange_collection(menu_items.order(:position), index: 0) if menu_items.any? && (menu_items.last.position > (menu_items.count + 1) || menu_items.first.position > 0)
   end
 
   def rearrange_collection(collection, index: nil)

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :categories
   resources :collections
+  resources :pages
   mount Avo::Engine, at: Avo.configuration.root_path
   root 'home#index'
   resources :projects
