@@ -4,7 +4,7 @@ class WebsiteConfigResource < Avo::BaseResource
 
   def custom_meta_data
     {
-      position: 7,
+      position: 8,
       direct_access_to: $website_config&.id
     }
   end

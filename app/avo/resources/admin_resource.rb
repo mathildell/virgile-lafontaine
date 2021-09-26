@@ -6,7 +6,7 @@ class AdminResource < Avo::BaseResource
   # end
   def custom_meta_data
     {
-      position: 6,
+      position: 7,
       title_before: I18n.t('admin.website')
     }
   end

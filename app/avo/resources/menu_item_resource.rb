@@ -10,7 +10,7 @@ class MenuItemResource < Avo::BaseResource
 
   def custom_meta_data
     {
-      position: 5,
+      position: 6,
       hr_after: true
     }
   end

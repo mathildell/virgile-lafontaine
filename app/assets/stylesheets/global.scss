@@ -19,6 +19,19 @@ b, strong {
   font-weight: 600;
 }
 
+.artist-name {
+  position: fixed;
+  transform: rotate(90deg) translate(61px, 0);
+  background-color: $sidebar-background;
+  width: 100vh;
+  bottom: 0;
+  right: 0;
+  transform-origin: top right;
+  line-height: 60px;
+  text-align: center;
+  z-index: 1;
+  border-bottom: 1px solid #000;
+}
 
 .main-sidebar,
 .main-content{
@@ -159,13 +172,41 @@ b, strong {
 
     .sidebar-project-urls {
       padding: 20px;
+      h2 {
+        margin-bottom: 10px;
+      }
+      a {
+        margin: 0px 5px;
+        text-decoration: underline;
+      }
     }
   }
 }
 
 .main-content {
-  width: calc(100% - 400px);
-  right: 0;
+  width: calc(100% - 461px);
+  right: 61px;
   background-color: #ffffff;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-left: 1px solid #000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $sidebar-background;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: darken($sidebar-background, 20%);
+    cursor: grabbing;
+  }
+
 }

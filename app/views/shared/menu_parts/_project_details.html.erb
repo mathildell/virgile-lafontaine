@@ -4,8 +4,12 @@
   </div>
 <% end %>
 
-<% if $website_config.show_projects_links %>
+<% if $website_config.show_projects_links && @project.links.any? %>
   <div class="sidebar-project-urls">
-    <%= link_to 'Open sea', @project.link_to_open_sea %> | <%= link_to 'Etsy', @project.link_to_etsy %>
+    <h2><%= Link.name.pluralize.humanize %></h2>
+    <% @project.links.each do |link|  %>
+      <%= link_to link.name, link.url %>
+      <%= " | " unless link == @project.links.last %>
+    <% end  %>
   </div>
 <% end %>

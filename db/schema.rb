@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_054458) do
+ActiveRecord::Schema.define(version: 2021_09_26_075005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 2021_09_26_054458) do
     t.index ["category_id"], name: "index_collections_on_category_id"
   end
 
+  create_table "links", force: :cascade do |t|
+    t.string "url"
+    t.string "name"
+    t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_links_on_project_id"
+  end
+
   create_table "menu_items", force: :cascade do |t|
     t.bigint "menu_id"
     t.string "name_fr"
@@ -104,8 +113,6 @@ ActiveRecord::Schema.define(version: 2021_09_26_054458) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "link_to_open_sea"
-    t.string "link_to_etsy"
     t.boolean "is_public", default: false
     t.bigint "collection_id"
     t.index ["collection_id"], name: "index_projects_on_collection_id"

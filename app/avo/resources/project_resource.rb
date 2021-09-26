@@ -4,8 +4,7 @@ class ProjectResource < Avo::BaseResource
 
   def custom_meta_data
     {
-      position: 3,
-      hr_after: true
+      position: 3
     }
   end
 
@@ -24,9 +23,6 @@ class ProjectResource < Avo::BaseResource
   field :image, as: :file, is_image: true, link_to_resource: true
   field :video, as: :file, is_image: true, link_to_resource: true
   field :hq_preview, as: :file, is_image: true, link_to_resource: true, hide_on: [:index]
-
-  field :link_to_open_sea, as: :text, hide_on: [:index]
-  field :link_to_etsy, as: :text, hide_on: [:index]
 
   field :is_public, as: :boolean
   field :collection, as: :belongs_to

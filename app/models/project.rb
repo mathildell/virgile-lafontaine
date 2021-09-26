@@ -5,6 +5,9 @@ class Project < ApplicationRecord
 
   belongs_to :collection
   has_one :category, :through => :collection
+
+  has_many :links
+
   scope :published, -> { where(is_public: true) }
 
   def category_name=

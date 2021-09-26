@@ -7,7 +7,7 @@ class PageResource < Avo::BaseResource
 
   def custom_meta_data
     {
-      position: 8
+      position: 9
     }
   end
 
