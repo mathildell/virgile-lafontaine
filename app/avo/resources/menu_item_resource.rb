@@ -1,12 +1,13 @@
 require "application_controller"
 
 class MenuItemResource < Avo::BaseResource
-  self.title = :name_en
+  self.title = :name
   self.includes = []
   @@menu = Menu.all.each_with_index.map { |x, i| { x.try(:name) || x.machine_name => x.id } }.reduce({}, &:merge)
 
   @@types = [:info, :success, :warning, :danger]
   @@badges = Menu.all.each_with_index.map { |x, i| { @@types[i % @@types.count] => x.try(:name) || x.machine_name } }.reduce({}, &:merge)
+  @@resources_badge = MenuItem.all.each_with_index.map {  |x, i| { @@types.reverse[i % @@types.count] => x.resource_link } if x.resource_link }.compact.reduce({}, &:merge)
 
   def custom_meta_data
     {
@@ -21,8 +22,7 @@ class MenuItemResource < Avo::BaseResource
 
   field :id, as: :id
   field :position, as: :number, sortable: true
-  field :name_fr, as: :text, hide_on: [:index]
-  field :name_en, as: :text, required: true
+  field :name, as: :text, required: true
 
   field :controller_name, as: :select, enum: ::MenuItem.controller_names
   field :controller_action, as: :select, enum: ::MenuItem.controller_actions, hide_on: [:index]
@@ -33,6 +33,7 @@ class MenuItemResource < Avo::BaseResource
   field :is_public, as: :boolean
   field :menu_id, as: :select, options: @@menu, hide_on: [:index, :show]
   field :menu_name, as: :badge, options: @@badges
+  field :resource_link, as: :badge, options: @@resources_badge
 
   # field :menu, as: :belongs_to
   # add fields here

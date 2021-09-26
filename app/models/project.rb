@@ -8,6 +8,9 @@ class Project < ApplicationRecord
 
   has_many :links
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   scope :published, -> { where(is_public: true) }
 
   def category_name=

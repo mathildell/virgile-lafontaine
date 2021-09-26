@@ -5,7 +5,7 @@
   <h2><%= model.humanize %></h2>
   <ul>
     <% collection.each do |category| %>
-      <%= content_tag(:li, link_to(category.name, url_for(controller: model.underscore, action: 'show', id: category.id))) rescue next %>
+      <%= content_tag(:li, link_to(category.name, url_for(controller: model.underscore, action: 'show', id: category.slug))) rescue next %>
     <% end %>
   </ul>
 <% end %>

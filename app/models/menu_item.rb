@@ -14,6 +14,18 @@ class MenuItem < ApplicationRecord
     self.position = items.any? ? items.last.position + 1 : 0  unless self.position
   end
 
+  def resource_link
+    if linked_resource.present?
+      name = linked_resource.try(:name) || linked_resource.try(:title)
+      identifiant = linked_resource.try(:slug) || linked_resource.try(:id)
+      "<a style='color:#fff;text-decoration:underline;' href=/avo/resources/#{self.controller_name.downcase}/#{identifiant}/edit>(#{self.controller_name.singularize}) #{ name }</a>".html_safe if name
+    end
+  end
+
+  def linked_resource
+    self.controller_name.singularize.constantize.find(self.resource_identifiant) if self.controller_name && self.resource_identifiant
+  end
+
   def menu_name
     menu&.name
   end

@@ -6,8 +6,11 @@
       <% menu_items.each do |menu_item| %>
         <%# next if menu_item %>
         <% options = { controller: menu_item.controller_name_before_type_cast, action: menu_item.controller_action_before_type_cast } %>
-        <% options[:id] = menu_item.resource_identifiant if menu_item.controller_action_before_type_cast == "show" && menu_item.resource_identifiant %>
-        <%= content_tag(:li, link_to(menu_item.send('name_' + I18n.locale.to_s), url_for(options))) %>
+        <% if menu_item.controller_action_before_type_cast == "show" && menu_item.resource_identifiant  %>
+          <% slug = menu_item.linked_resource %>
+          <% options[:id] = slug %>
+        <% end %>
+        <%= content_tag(:li, link_to(menu_item.name, url_for(options))) %>
       <% end %>
     </ul>
     <%= render 'shared/menu_parts/collections_navigation', collection: Category.all %>

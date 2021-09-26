@@ -1,6 +1,6 @@
 <div class="sidebar-collection-name">
   <% crumbs.each do |crumb| %>
-    <%= link_to crumb.name, url_for(controller: crumb.class.name.pluralize.underscore, action: 'show', id: crumb.id) %>
+    <%= link_to crumb.name, url_for(controller: crumb.class.name.pluralize.underscore, action: 'show', id: crumb.slug) %>
     <%= " > " unless crumb == crumbs.last %>
   <% end %>
 </div>
