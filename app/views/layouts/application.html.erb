@@ -8,10 +8,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+
+    <%= javascript_pack_tag "customs/#{params[:controller]}" rescue nil %>
+
+
+
   </head>
 
   <body>
-    <%= render 'shared/flash' %>
-    <%= yield %>
+    <div class="main-sidebar">
+      <%= render 'shared/main_menu' %>
+    </div>
+    <div class="main-content">
+      <%= yield %>
+    </div>
   </body>
 </html>

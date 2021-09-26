@@ -1,0 +1,10 @@
+<% menu = Menu.find_by(machine_name: :main_menu) %>
+<% menu_items = menu.present? ? menu.menu_items.published : [] %>
+
+<% if menu_items.any? %>
+  <ul>
+    <% menu_items.each do |menu_item| %>
+      <%= content_tag(:li, link_to(menu_item.send('name_' + I18n.locale.to_s), url_for(controller: menu_item.controller_name, action: menu_item.controller_action))) rescue next %>
+    <% end %>
+  </ul>
+<% end %>

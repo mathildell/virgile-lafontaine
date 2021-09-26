@@ -9,6 +9,7 @@ class WebsiteConfigResource < Avo::BaseResource
     }
   end
 
+  field :logo, as: :file, is_image: true, link_to_resource: true
   field :website_name, as: :text
   field :artist_name, as: :text
   field :show_projects_links, as: :boolean
