@@ -1,2 +1,24 @@
-$text-color: #000000;
-$sidebar-background: #b6a9a9;
+$text-color: #ffffff;
+$background-color: #060606;
+$blocks-background-color: rgba(20, 20, 20, 0.8);
+
+$content-height: 90vh;
+$content-width: 90vw;
+
+$nav-height: 60px;
+$nav-height-ratio: calc(#{$nav-height} / 3);
+
+$banner-blur-amount: 15px;
+$banner-opacity: 0.4;
+
+$section-margin: 20px;
+$inner-content-height: calc(#{$content-height} - #{$nav-height});
+$inner-content-half: calc(#{$inner-content-height}/5);
+$inner-content-half-ratio: calc(#{$inner-content-half} * 3);
+$margin-percent-content: 0.5%;
+$margin-percent-content-double: 1%;
+
+$image-icon: 80px;
+$image-icon-right-margin: 5%;
+$image-icon-opacity-before: 0.2;
+$image-icon-opacity-after: 1;

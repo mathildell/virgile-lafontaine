@@ -1,0 +1,4 @@
+<section class="banner-container two-third">
+  <%= image_tag $website_config.banner if $website_config&.banner&.attached? %>
+  <%# image_tag "https://via.placeholder.com/960x540" if ENV['RAILS_ENV'] == 'development'%>
+</section>

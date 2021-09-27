@@ -6,23 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap', media: 'all' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_pack_tag 'application' %>
 
-
-
   </head>
 
   <body>
-    <div class="main-sidebar">
-      <%= render 'shared/main_menu' %>
+
+    <div id="main-content" class="<%= controller_name %>">
+      <div class="blur-background" style="background-image: url(<%= $website_config.banner&.url %>)"></div>
+
+      <div class="content-centerer">
+        <%= render 'shared/header' %>
+        <main>
+          <%= yield %>
+        </main>
+      </div>
     </div>
-    <div class="main-content">
-      <%= yield %>
-    </div>
-    <%= render 'shared/artist_name' %>
 
   </body>
 </html>

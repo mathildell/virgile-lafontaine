@@ -1,0 +1,9 @@
+<section class="work-container one-third">
+  <h3>
+    <%= link_to $website_config.text_art_menu, '#', data: {show_modal: '.work-modal'} %>
+  </h3>
+  <div class="work-modal">
+    <%= link_to image_tag(image_path('close-btn.png')), '#', class: 'close-modal-image', data: {show_modal: '.work-modal'} %>
+    <%= render 'shared/menu', machine_name: :work_menu %>
+  </div>
+</section>

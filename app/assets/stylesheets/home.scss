@@ -1,3 +1,170 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'variables';
+
+#main-content.home main {
+  // display: flex;
+  // align-items: stretch;
+  // height: calc(#{$content-height} - 60px);
+  background-color: transparent;
+  padding: 0px;
+
+  .grid-row-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    &:first-child {
+      height: calc(#{$inner-content-half-ratio} - #{$margin-percent-content-double});
+      margin-bottom: $margin-percent-content;
+      margin-top: $margin-percent-content;
+    }
+    &:last-child {
+      height: calc(#{$inner-content-half} * 2);
+    }
+
+    .two-third {
+      flex-basis: calc(70% - #{$margin-percent-content});
+    }
+    .one-third {
+      flex-basis: 30%;
+    }
+  }
+
+  section {
+    position: relative;
+    background-color: $blocks-background-color;
+
+    &.title-container,
+    &.work-container,
+    .work-modal {
+      padding: 50px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: $image-icon-right-margin;
+      top: 50%;
+      transform: translateY(-50%);
+      width: $image-icon;
+      height: $image-icon;
+      background-size: cover;
+      opacity: $image-icon-opacity-before;
+      transition-duration: 0.6s;
+    }
+
+    &:hover:after{
+      opacity: $image-icon-opacity-after;
+    }
+
+    &.banner-container {
+      img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+
+    &.about-container {
+      h2 {
+        font-size: xx-large;
+        font-weight: bold;
+        // margin-bottom: 0.3em;
+      }
+
+      .about-content {
+        padding: 50px;
+        bottom: 0px;
+        position: absolute;
+      }
+
+      &:after {
+        filter: invert(100%);
+        background-image: image_url('home-hand-sign.png');
+      }
+    }
+
+    &.title-container {
+      h1 {
+        font-size: 6em;
+        line-height: 0.7;
+        font-weight: bold;
+
+        display: table;
+        height: 100%;
+
+        span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      &:after {
+        filter: grayscale(100%) brightness(3);
+        background-image: image_url('home-stars-sign.png');
+      }
+    }
+
+    &.work-container {
+      h3 {
+        font-size: 3em;
+        line-height: 1;
+        font-weight: bold;
+        display: table;
+        height: 100%;
+
+        a {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      .work-modal {
+        background-color: $background-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+
+        visibility: hidden;
+        opacity: 0;
+        transition-duration: 0.6s;
+
+        a.close-modal-image {
+          filter: invert(100%);
+          width: 30px;
+          right: $image-icon-right-margin;
+          position: absolute;
+          top: $image-icon-right-margin;
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+
+        &.show-modal {
+          transition-duration: 1s;
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .menu-container {
+          li {
+            display: table;
+            border-bottom: 1px solid $text-color;
+            padding-bottom: 2px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+          }
+        }
+      }
+
+      &:after {
+        filter: invert(100%);
+        transform: scale(0.8) translateY(-65%);
+        background-image: image_url('home-arrow-sign.png');
+      }
+    }
+  }
+}

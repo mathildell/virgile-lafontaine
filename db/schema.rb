@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_084050) do
+ActiveRecord::Schema.define(version: 2021_09_27_004951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,10 +134,13 @@ ActiveRecord::Schema.define(version: 2021_09_26_084050) do
 
   create_table "website_configs", force: :cascade do |t|
     t.string "website_name"
-    t.string "artist_name"
     t.boolean "show_projects_links"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "introduction"
+    t.string "text_art_menu"
+    t.string "text_box_left"
+    t.string "introduction_title"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
