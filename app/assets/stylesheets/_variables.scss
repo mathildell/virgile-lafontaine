@@ -1,5 +1,6 @@
 $text-color: #ffffff;
-$background-color: #060606;
+// $background-color: #060606;
+$background-color: rgba(10,10,10,0.9);
 $blocks-background-color: rgba(20, 20, 20, 0.8);
 
 $content-height: 90vh;
@@ -22,3 +23,6 @@ $image-icon: 80px;
 $image-icon-right-margin: 5%;
 $image-icon-opacity-before: 0.2;
 $image-icon-opacity-after: 1;
+
+$gallery-navigation-height: 80px;
+$gallery-navigation-space: 10px;

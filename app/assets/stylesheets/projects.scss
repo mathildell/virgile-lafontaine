@@ -2,6 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'variables';
+
+.projects-slider {
+  &,
+  .glide__slides {
+    height: 100%;
+  }
+  .glide__track {
+    height: calc(100% - #{$gallery-navigation-height} - calc(#{$gallery-navigation-space} * 2));
+  }
+
+  .glide__slide {
+    img {
+      display: block;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .glide__bullets {
+    transform: none;
+    width: 100%;
+    bottom: $gallery-navigation-space;
+    height: $gallery-navigation-height;
+    justify-content: space-evenly;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .glide__bullet {
+      margin: 0;
+      width: unset;
+      height: unset;
+      box-shadow: none;
+      border: unset;
+      border-radius: 0;
+      opacity: 0.3;
+      &.glide__bullet--active,
+      &:hover {
+        opacity: 0.7;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      margin: 0 $gallery-navigation-space;
+    }
+  }
+
+
+
+}
+
 /*
 .project-item {
   padding: 40px;

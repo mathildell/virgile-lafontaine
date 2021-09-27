@@ -13,10 +13,10 @@
     justify-content: space-between;
 
     &:first-child {
-      height: calc(#{$inner-content-half-ratio} - #{$margin-percent-content-double});
+      height: calc(#{$inner-content-half-ratio} - #{$margin-percent-content-double} - calc(#{$section-margin} / 2));
       margin-bottom: $margin-percent-content;
-      margin-top: $margin-percent-content;
     }
+
     &:last-child {
       height: calc(#{$inner-content-half} * 2);
     }
@@ -38,6 +38,13 @@
     .work-modal {
       padding: 50px;
     }
+    &.about-container,
+    &.title-container,
+    &.work-container,
+    .work-modal {
+      border: 1px solid #2e2e2e;
+    }
+
 
     &:after {
       content: "";
@@ -93,7 +100,7 @@
         display: table;
         height: 100%;
 
-        span {
+        a {
           display: table-cell;
           vertical-align: middle;
         }

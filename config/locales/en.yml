@@ -37,6 +37,9 @@ en:
   show: Resource detail
   site_title: Application de Virgile
   activerecord:
+    models:
+      category: Family
+      collection: Stuffs
     attributes:
       project:
         name: Name
