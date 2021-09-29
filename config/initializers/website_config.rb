@@ -1,8 +1,7 @@
 Rails.application.config.to_prepare do
-  WebsiteConfig.create!( website_name: "App de Virgile",
-                         artist_name: "Virgile",
-                         show_projects_links: true) unless WebsiteConfig.any?
-
+  # WebsiteConfig.create!( website_name: "App de Virgile",
+  #                        artist_name: "Virgile",
+  #                        show_projects_links: true) unless WebsiteConfig.any?
   $website_config = WebsiteConfig.first
 end
 
