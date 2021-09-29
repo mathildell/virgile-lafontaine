@@ -31,8 +31,10 @@ class MenuItemResource < Avo::BaseResource
 
 
   field :is_public, as: :boolean
-  field :menu_id, as: :select, options: @@menu, hide_on: [:index, :show]
-  field :menu_name, as: :badge, options: @@badges
+  # field :menu_id, as: :select, options: @@menu, hide_on: [:index, :show]
+  # field :menu_name, as: :badge, options: @@badges
+
+  field :menu, as: :belongs_to
   field :resource_link, as: :badge, options: @@resources_badge
 
   # field :menu, as: :belongs_to

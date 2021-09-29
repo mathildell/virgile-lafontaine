@@ -1,24 +1,37 @@
 <% if model_collection.any? %>
-  <div class="glide projects-slider">
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        <% model_collection.each do |object| %>
-          <li class="glide__slide">
-            <%= image_tag object.image&.url %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="projects-slider">
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <% model_collection.each do |object| %>
+            <li class="glide__slide" data-project-title="<%= object.name %>" data-project-url="<%= project_url(object) %>">
+              <%# link_to object.name, '#' %>
+              <%= image_tag object.image&.url %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
-    <div class="glide__bullets" data-glide-el="controls[nav]">
-      <% model_collection.each_with_index do |object, index| %>
-        <% url = object.hq_preview.attached? ? object.hq_preview.url : object.image&.url %>
-        <% next unless url %>
-        <div class="glide__bullet" data-glide-dir="=<%= index %>">
-          <%= image_tag url %>
+      <div class="glide-bullets-container">
+        <h1>
+          <% first_project = model_collection.first %>
+          <%= link_to project_url(first_project) do  %>
+            <span><%= first_project.name %></span>
+            <%# image_tag 'projects-eye-sign.png' %>
+          <% end %>
+        </h1>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          <% model_collection.each_with_index do |object, index| %>
+            <% url = object.hq_preview.attached? ? object.hq_preview.url : object.image&.url %>
+            <% next unless url %>
+            <div class="glide__bullet" data-glide-dir="=<%= index %>">
+              <%= image_tag url %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
 
+      </div>
+
+    </div>
   </div>
 <% end %>

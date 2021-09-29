@@ -15,5 +15,7 @@ class CollectionResource < Avo::BaseResource
   field :category, as: :belongs_to
   # add fields here
 
+  field :projects, as: :has_many
+
   filter OwnsProjectsFilter
 end

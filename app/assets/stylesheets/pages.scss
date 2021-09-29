@@ -1,8 +1,9 @@
-// @import 'variables';
+@import 'variables';
 .page-content {
   h1 {
     font-size: xxx-large;
     margin-bottom: 0.5em;
+    border-bottom: 1px solid $blocks-border-color;
   }
 }
 /*

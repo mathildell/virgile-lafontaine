@@ -15,5 +15,7 @@ class MenuResource < Avo::BaseResource
   field :id, as: :id
   field :name, as: :text
   field :machine_name, as: :text, required: true, hide_on: [:index]
+  field :menu_items, as: :has_many
+
   # add fields here
 end

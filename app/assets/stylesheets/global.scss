@@ -66,6 +66,7 @@ h1, h2, h3, h4, h5, .menu-container li {
   }
 
   &.pages,
+  &.projects,
   &.collections,
   &.categories {
     .content-centerer {
@@ -86,9 +87,11 @@ h1, h2, h3, h4, h5, .menu-container li {
       main {
         width: 70%;
         flex-basis: 70%;
+        border: 1px solid $blocks-border-color;
       }
     }
   }
+  &.projects,
   &.collections,
   &.categories {
     main {

@@ -3,54 +3,115 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'variables';
 
-.projects-slider {
+.project {
+  display: flex;
+}
+.projects-slider,
+.project {
   &,
-  .glide__slides {
+  .glide__slides,
+  .glide,
+  .glide__track,
+  .glide-bullets-container,
+  .project-image,
+  .description-container {
     height: 100%;
   }
-  .glide__track {
-    height: calc(100% - #{$gallery-navigation-height} - calc(#{$gallery-navigation-space} * 2));
+
+  .glide,
+  .project-image {
+    width: 70%;
+  }
+  .description-container {
+    width: 30%;
   }
 
-  .glide__slide {
+  h1 {
+    font-size: 1.5em;
+    margin: $gallery-navigation-space $gallery-navigation-space calc(#{$gallery-title-height} / 2);
+  }
+
+  .glide__slide,
+  .project-image {
     img {
       display: block;
       height: 100%;
-      margin: 0 auto;
-    }
-  }
-
-  .glide__bullets {
-    transform: none;
-    width: 100%;
-    bottom: $gallery-navigation-space;
-    height: $gallery-navigation-height;
-    justify-content: space-evenly;
-    left: 50%;
-    transform: translateX(-50%);
-
-    .glide__bullet {
       margin: 0;
-      width: unset;
-      height: unset;
-      box-shadow: none;
-      border: unset;
-      border-radius: 0;
-      opacity: 0.3;
-      &.glide__bullet--active,
-      &:hover {
-        opacity: 0.7;
-      }
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      margin: 0 $gallery-navigation-space;
     }
   }
 
+  .glide-bullets-container {
+    top: 0;
+    position: absolute;
+
+    .glide__bullets {
+      height: calc(100% - calc(calc(#{$gallery-title-height} + calc(#{$gallery-navigation-space} * 2 )) - calc(#{$gallery-title-height} / 2)));
+      transform: none;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      position: relative;
+      left: 0;
+      bottom: unset;
+
+      .glide__bullet {
+        margin: $gallery-navigation-space;
+        box-shadow: none;
+        border-radius: 0;
+        opacity: $image-icon-opacity-before;
+        border: none;
+
+
+        &.glide__bullet--active,
+        &:hover {
+          opacity: $image-icon-opacity-after;
+        }
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        // margin: 0 $gallery-navigation-space;
+      }
+    }
+
+    h1 {
+      height: $gallery-title-height;
+      line-height: $gallery-title-height;
+
+      a {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        border-bottom: 1px solid $blocks-border-color;
+
+        &:after {
+          content: "";
+          filter: invert(100%);
+          height: 40px;
+          width: 40px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          display: block;
+          background-image: image_url('projects-eye-closed-sign.png');
+          background-size: cover;
+          transform: translateY(-50%);
+          opacity: $image-icon-opacity-before;
+          transition-duration: 0.6s;
+        }
+
+        &:hover:after {
+          background-image: image_url('projects-eye-open-sign.png');
+          opacity: $image-icon-opacity-after;
+        }
+      }
+
+    }
+
+
+  }
 
 
 }

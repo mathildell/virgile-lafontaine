@@ -1,5 +1,6 @@
 @import 'variables';
 
+// #main-content.sessions main,
 #main-content.home main {
   // display: flex;
   // align-items: stretch;
@@ -13,7 +14,7 @@
     justify-content: space-between;
 
     &:first-child {
-      height: calc(#{$inner-content-half-ratio} - #{$margin-percent-content-double} - calc(#{$section-margin} / 2));
+      height: calc(#{$inner-content-half-ratio} - #{$margin-percent-content-double} - #{$section-margin});
       margin-bottom: $margin-percent-content;
     }
 
@@ -42,7 +43,7 @@
     &.title-container,
     &.work-container,
     .work-modal {
-      border: 1px solid #2e2e2e;
+      border: 1px solid $blocks-border-color;
     }
 
 
@@ -126,7 +127,7 @@
         }
       }
       .work-modal {
-        background-color: $background-color;
+        background-color: $background-modal-color;
         position: absolute;
         top: 0;
         left: 0;
@@ -162,7 +163,7 @@
             border-bottom: 1px solid $text-color;
             padding-bottom: 2px;
             margin-bottom: 10px;
-            font-size: 1.3em;
+            font-size: 1.5em;
           }
         }
       }

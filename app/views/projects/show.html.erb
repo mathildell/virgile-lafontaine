@@ -1,1 +1,56 @@
-<%= render 'shared/project_item', project: @project %>
+<div class="project">
+  <div class="project-image" style="background: #f2f200;">
+    <%= image_tag @project.image&.url %>
+  </div>
+  <div class="description-container" style="background: #00ffff;">
+    <% if @crumbs && @crumbs.any? %>
+      <div class="breadcrumbs">
+        <% @crumbs.each do |crumb| %>
+          <% options = {controller: crumb.class.name.pluralize.underscore, action: :show, id: crumb.slug, only_path: true} %>
+          <%= link_to crumb.name, url_for(options) %>
+        <% end %>
+      </div>
+    <% end %>
+    <h1>
+      <%= @project.name %>
+    </h1>
+
+    <% if @project.description.present? %>
+      <div class="project-description">
+        <%== @project.description %>
+      </div>
+    <% end %>
+
+    <% if @project.links.any? && $website_config.show_projects_links %>
+      <div class="project-links">
+        <% @project.links.each do |link| %>
+          <%= link_to link.name, link.url, target: :blank %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="projects-slider">
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <li class="glide__slide" data-project-title="<%= @project.name %>" data-project-url="<%= project_url(@project) %>">
+          <%= image_tag @project.image&.url %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="glide-bullets-container">
+      <h1>
+        <%= link_to project_url(@project) do  %>
+          <span><%= @project.name %></span>
+          <%# image_tag 'projects-eye-sign.png' %>
+        <% end %>
+      </h1>
+
+    </div>
+
+  </div>
+</div>

@@ -12,8 +12,6 @@ class CollectionsController < ApplicationController
   def show
     @projects = @collection.projects.published.order(created_at: :desc)
     @page_title = @collection.name
-
-    @crumbs = [@collection.category]
   end
 
   private

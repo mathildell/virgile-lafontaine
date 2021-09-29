@@ -1,12 +1,14 @@
 @import 'variables';
 
 .main-menu {
-  background-color: $background-color;
   margin-right: $margin-percent-content;
+  border: 1px solid $blocks-border-color;
+  background-color: $blocks-background-color;
   font-size: 2em;
 }
 
-.home {
+.home,
+.sessions {
   .main-menu {
     font-size: 1em;
     line-height: $nav-height;

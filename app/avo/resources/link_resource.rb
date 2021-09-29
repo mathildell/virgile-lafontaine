@@ -18,9 +18,11 @@ class LinkResource < Avo::BaseResource
   field :id, as: :id
   field :name, as: :text, required: true
   field :url, as: :text, required: true
-  field :project_id, as: :select, required: true, options: Project.all.map {|x| { "#{x.collection.name} > #{x.name}" => x.id } }.reduce({}, &:merge), hide_on: [:index, :show]
+  # field :project_id, as: :select, required: true, options: Project.all.map {|x| { "#{x.collection.name} > #{x.name}" => x.id } }.reduce({}, &:merge), hide_on: [:index, :show]
 
-  field :project_name, as: :badge, options: @@badges
+  # field :project_name, as: :badge, options: @@badges, hide_on: [:show]
+
+  field :project, as: :belongs_to
 
   # t.string :url
   # t.string :name

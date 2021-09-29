@@ -18,6 +18,7 @@ class ProjectResource < Avo::BaseResource
   field :id, as: :id
 
   field :name, as: :text, required: true
+  field :slug, as: :text, readonly: true
   field :description, as: :trix, placeholder: I18n.t('admin.add_description'), always_show: false
 
   field :image, as: :file, is_image: true, link_to_resource: true
@@ -26,9 +27,12 @@ class ProjectResource < Avo::BaseResource
 
   field :is_public, as: :boolean
   field :collection, as: :belongs_to
+  field :category, as: :belongs_to, hide_on: [:edit]
 
   # field :stage, as: :badge, options: { info: [:discovery, :idea], success: :done, warning: 'on hold', danger: :cancelled } # The mapping of custom values to badge values.
-  field :category_name, as: :badge, options: @@badges
+  # field :category_name, as: :badge, options: @@badges
+
+  field :links, as: :has_many
 
   filter PublishedFilter
 

@@ -11,6 +11,9 @@ class CategoryResource < Avo::BaseResource
   field :id, as: :id
   field :name, as: :text, required: true
 
+  field :collections, as: :has_many
+  field :projects, as: :has_many
+
   filter OwnsProjectsFilter
   # add fields here
 end
