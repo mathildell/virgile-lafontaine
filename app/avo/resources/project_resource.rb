@@ -22,8 +22,9 @@ class ProjectResource < Avo::BaseResource
   field :description, as: :trix, placeholder: I18n.t('admin.add_description'), always_show: false
 
   field :image, as: :file, is_image: true, link_to_resource: true
-  field :video, as: :file, is_image: true, link_to_resource: true
-  field :hq_preview, as: :file, is_image: true, link_to_resource: true, hide_on: [:index]
+  # field :video, as: :file, is_image: true, link_to_resource: true
+  field :preview, as: :file, is_image: true, link_to_resource: true, hide_on: [:index]
+  field :hq_large_image, as: :file, is_image: true, link_to_resource: true, hide_on: [:index]
 
   field :is_public, as: :boolean
   field :collection, as: :belongs_to

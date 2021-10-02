@@ -6,7 +6,10 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+
+// import('app/assets/application.css');
 import Global from "./customs/global";
+
 
 Rails.start()
 ActiveStorage.start()

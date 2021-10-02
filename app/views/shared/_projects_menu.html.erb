@@ -1,14 +1,17 @@
-<% collections = Collection.all.group_by { |x| x.category_id } %>
-<% if collections.any? %>
-  <ul class="menu-container">
-    <% collections.each do |category_id, collections_array| %>
-      <% category = Category.find category_id %>
-      <li><%= link_to category.name, category_path(category) %></li>
-      <ul style="padding-left: 30px;">
-        <% collections_array.each do |collection| %>
-          <li><%= link_to collection.name, collection_path(collection) %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </ul>
-<% end %>
+<div class="project-menu">
+  <%# render 'shared/menu', machine_name: :sidebar_menu %>
+  <% collections = Collection.all.group_by { |x| x.category_id } %>
+  <% if collections.any? %>
+    <ul class="menu-container">
+      <% collections.each do |category_id, collections_array| %>
+        <% category = Category.find category_id %>
+        <li><%= link_to category.name, category_path(category) %></li>
+        <ul>
+          <% collections_array.each do |collection| %>
+            <li><%= link_to collection.name, collection_path(collection) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

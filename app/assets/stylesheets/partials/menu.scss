@@ -1,15 +1,65 @@
 @import 'variables';
 
-.main-menu {
-  margin-right: $margin-percent-content;
-  border: 1px solid $blocks-border-color;
-  background-color: $blocks-background-color;
-  font-size: 2em;
+
+.close-menu-image {
+  filter: invert(100%);
+  width: 30px;
+  padding-bottom: $section-margin;
+  img {
+    width: 100%;
+  }
+  &, img {
+    display: none;
+  }
+}
+
+.projects,
+.categories,
+.collections,
+.pages {
+  .main-menu {
+    margin-right: $margin-percent-content;
+    padding: $section-margin;
+    border: 1px solid $blocks-border-color;
+    background-color: $blocks-background-color;
+    font-size: 2em;
+  }
+  .project-menu {
+    padding-top: $section-margin;
+    margin-top: $section-margin;
+    border-top: 1px solid $blocks-border-color;
+    .menu-container {
+      font-size: 0.8em;
+    }
+    ul ul {
+      padding-left: 20px;
+      padding-bottom: 20px;
+
+      li {
+        position: relative;
+        padding-left: 30px;
+        &:before {
+          content: "";
+          width: 20px;
+          height: 2px;
+          background-color: $blocks-border-color;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 .home,
 .sessions {
   .main-menu {
+    border: 1px solid $blocks-border-color;
+    background-color: $blocks-background-color;
+    //font-size: 2em;
     font-size: 1em;
     line-height: $nav-height;
     margin-right: 0;

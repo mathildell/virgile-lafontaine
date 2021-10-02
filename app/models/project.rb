@@ -1,7 +1,8 @@
 class Project < ApplicationRecord
   has_one_attached :image
-  has_one_attached :video
-  has_one_attached :hq_preview
+  # has_one_attached :video
+  has_one_attached :preview
+  has_one_attached :hq_large_image
 
   belongs_to :collection
   has_one :category, :through => :collection

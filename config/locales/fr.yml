@@ -45,8 +45,6 @@ fr:
       project:
         name: Nom
         description: Description
-        link_to_open_sea: Lien vers opensea
-        link_to_etsy: Lien vers etsy
         is_public: Publié
   admin:
     published: Publié

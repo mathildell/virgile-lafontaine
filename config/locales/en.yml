@@ -38,14 +38,12 @@ en:
   site_title: Application de Virgile
   activerecord:
     models:
-      category: Family
-      collection: Stuffs
+      category: Categories
+      collection: Collections
     attributes:
       project:
         name: Name
         description: Description
-        link_to_open_sea: Opensea link
-        link_to_etsy: Etsy link
         is_public: Published
   admin:
     published: Published

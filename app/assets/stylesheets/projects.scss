@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'variables';
-
+.magnify > .magnify-lens {
+  width: 100px;
+  height: 100px;
+}
 .project {
   display: flex;
 }
@@ -22,21 +25,79 @@
   .project-image {
     width: 70%;
   }
-  .description-container {
-    width: 30%;
-  }
 
   h1 {
     font-size: 1.5em;
     margin: $gallery-navigation-space $gallery-navigation-space calc(#{$gallery-title-height} / 2);
   }
 
+  .description-container {
+    width: 30%;
+    padding: 15px;
+    h1 {
+      margin-left: 0px;
+      margin-bottom: calc(#{$gallery-navigation-space} * 2);
+      border-bottom: 1px solid $blocks-border-color;
+    }
+    .breadcrumbs{
+      font-size: 0.8em;
+      margin-bottom: calc(#{$gallery-navigation-space} * 2);
+      span {
+        display: inline-block;
+        margin: 0 $gallery-navigation-space;
+      }
+      a:last-child {
+        font-style: italic;
+        text-decoration: underline;
+      }
+    }
+    .project-description {
+      font-size: 0.9em;
+      padding-bottom: calc(#{$gallery-navigation-space} * 2);
+      margin-bottom: calc(#{$gallery-navigation-space} * 2);
+      border-bottom: 1px solid $blocks-border-color;
+    }
+
+    .project-links {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: calc(#{$gallery-navigation-space} * 2);
+      a {
+        background-color: $text-color;
+        color: $blocks-background-color;
+        text-transform: uppercase;
+        font-family: 'BenchNine';
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 0 5px 5px;
+        padding: 5px 15px;
+        line-height: 1em;
+        border: 1px solid $text-color;
+        transition-duration: 0.3s;
+        &:hover {
+          background-color: $blocks-background-color;
+          color: $text-color;
+          border: 1px solid $blocks-border-color;
+        }
+      }
+    }
+  }
+
   .glide__slide,
   .project-image {
-    img {
+    img,
+    & > a {
       display: block;
       height: 100%;
       margin: 0;
+    }
+  }
+
+  .project-image {
+    .js-image-zoom__zoomed-area,
+    .js-image-zoom__zoomed-image {
+      z-index: 2;
+      border: 5px solid red;
     }
   }
 

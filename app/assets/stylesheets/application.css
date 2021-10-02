@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+/* @import "@glidejs/glide/src/assets/sass/glide.core"; */
+/* @import "@glidejs/glide/src/assets/sass/glide.theme"; */
+
+/* @import "browser_css.scss"; */
+/* @import "_variables.scss"; */
+/* @import "global.scss"; */
+/* @import "partials/menu.scss"; */
+/* @import "categories.scss"; */
+/* @import "collections.scss"; */
+/* @import "home.scss"; */
+/* @import "pages.scss"; */
+/* @import "projects.scss"; */
